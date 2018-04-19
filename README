@@ -1,0 +1,90 @@
+Krecipes is a Recipe Book for KDE. It requires KDE 4.4 or greater (and Qt 4).
+Developed and tested on Debian GNU/Linux sid (KDE 4.4.5 and Qt 4.6.3).
+
+
+** Dependencies
+
+Additionally to whatever Krecipes is linked against, you will need the client
+programs (i.e shell commands sqlite3, mysql ... ) for your database if you want
+to use the Krecipes backup feature. If you want to use "krecipes
+--convert-sqlite3" you will need both sqlite and sqlite3 shell commands.
+
+** Build Dependencies
+
+ If you're using a Debian-like GNU/Linux distribution you may want to install
+ the following packages: 
+  - kdelibs5-dev
+  - libqimageblitz-dev 
+  - libsqlite3-dev or libsqlite0-dev
+  - libxml2-dev
+  - libxslt1-dev
+ 
+** Building The Latest (2.0-beta2) Release
+ 
+ Just untar the package first:
+ 
+ tar -zxf krecipes-2.0-beta2.tar.gz
+ 
+ And compile:
+ 
+ cd krecipes-2.0-beta2
+ mkdir build && cd build
+ cmake ..
+ make
+ make install
+ 
+ 
+** Downloading And Compiling Through Subversion
+ 
+ The project is now being developed under extragear/utils in KDE's servers. 
+
+ Please notice that this application is alpha, note that the more our users
+ tells us about bugs, the faster we can find them and fix them.
+
+ To download the package, do:
+ 
+ svn co svn://anonsvn.kde.org/home/kde/trunk/extragear/utils/krecipes
+
+ To update the package, do:
+
+ cd krecipes
+ svn update
+
+ To compile it:
+
+ mkdir build && cd build
+ cmake ..
+ make
+
+ To install it:
+
+ make install
+
+ To uninstall it:
+
+ make uninstall
+
+
+** Test programs
+
+ Krecipes comes with some programs (targeted to testers and developers) to test
+ importers and exporters. You can build it adding "-DKDE4_BUILD_TESTS=ON" when
+ you execute cmake.
+
+ You can execute the tests just typing 'make test'.
+
+
+** Hidden features
+
+ There are a couple of hidden (hidden because they are not supported yet)
+ features, to show it you can put these two lines:
+
+ [Advanced]
+ UnhideMergeTools=true
+
+ in krecipesrc configuration file.
+
+ You can see the features ("Merge Similar Categories..." and "Merge Similar
+ Ingredients...") in the "Tools" menu.
+
+
